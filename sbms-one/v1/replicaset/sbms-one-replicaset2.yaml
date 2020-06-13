@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: sbms-one-rs
+  labels:
+    name: sbms-one-r-label
+    app: sbms-one-rs-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: sbms-one-rs-label
+  template:
+    metadata:
+      labels:
+        name: sbms-one-rs-label
+    spec:
+      containers:
+      - name: sbms-one-rs-cnt
+        image: jbtechguide/k8s-one-image-v1
+        ports:
+        - containerPort: 9898

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbms-one-deploy
+  labels:
+     app: sbms-one-deploy-label
+     env: DEV
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sbms-one-deplo-label
+      env: DEV
+  template:
+    metadata:
+      labels:
+        app: sbms-one-deploy-label
+        env: DEV
+    spec:
+      containers:
+      - name: sbms-one-deploy-cnt
+        image: bjoshi2021/sbms-one-image-v2
+        ports:
+        - containerPort: 7777
+        

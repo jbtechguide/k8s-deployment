@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbms-one-deploy
+  labels:
+     name: sbms-one-deploy-label
+     env: DEV
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: sbms-one-deploy-pod-label
+      env: DEV
+  template:
+    metadata:
+      labels:
+        name: sbms-one-deploy-pod-label
+        env: DEV
+    spec:
+      containers:
+      - name: sbms-one-deploy-pod-cnt
+        image: jbtechguide/k8s-one-image-v1
+        ports:
+        - containerPort: 9898
+        

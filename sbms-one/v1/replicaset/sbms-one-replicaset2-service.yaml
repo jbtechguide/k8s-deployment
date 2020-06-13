@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sbms-one-service
+  labels:
+    name: sbms-one-servic-label
+    app: sbms-one-service-app
+spec:
+  selector:
+    name: sbms-one-rs-label
+  type: NodePort
+  ports:
+   - name: sbms-one-service-port
+     port: 80
+     targetPort: 9898
+     protocol: TCP

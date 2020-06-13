@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sbms-one-pod
+  labels:
+    name: sbms-one-pod-label
+    app: sbms-one-pod-app
+spec:
+  containers: 
+    - image: jbtechguide/k8s-one-image-v1
+      name: sbms-one-pod-cnt
+      ports: 
+        - containerPort: 9898
+        
